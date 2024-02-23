@@ -6,6 +6,7 @@ using VRC.Udon;
 
 namespace aki_lua87.UdonScripts.utils
 {
+    // インタラクトすると他のUdonBehaviourのメソッドを呼び出す
     public class CrossUdonBehaviourCommunication : UdonSharpBehaviour
     {
         [SerializeField] private UdonSharpBehaviour targetUdonBehaviour;
@@ -15,7 +16,6 @@ namespace aki_lua87.UdonScripts.utils
 
         public override void Interact()
         {
-            // オーナー変更
             if (!Networking.IsOwner(Networking.LocalPlayer, this.gameObject)) Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
             if (isSync)
             {
